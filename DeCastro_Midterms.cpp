@@ -314,23 +314,23 @@ class ItemInventory{
 			cout << endl << category << " Items: " << endl;
 			cout << left <<setw(15)<<setfill(' ') << "ID"<<setw(15)<<setfill(' ')<<"Name"<< left <<setw(15)<<setfill(' ')<<"Quantity"<< left <<setw(15)<<setfill(' ')<<"Price"<< left <<setw(15)<<setfill(' ')<<"Category"<< endl;
 			cout << "----------------------------------------------------------------------" << endl;
-        	for (int i = 0; i < itemCount; i++) {
-            	if (product[i]->getCategory() == category) { 
-            		product[i]->displayItem();
-            		founditem = true;
+        		for (int i = 0; i < itemCount; i++) {
+            			if (product[i]->getCategory() == category) { 
+            				product[i]->displayItem();
+            			founditem = true;
+        			}
         		}
-        	}
-        	if (!founditem)
+        		if (!founditem)
         		cout << "No item found in the category: "<< category << endl;
     	}
     	
     	void searchItem(bool founditem, string itemID, int choice){
     		if(itemCount == 0){
-				cout << "Inventory Does Not Have Any Available Items" << endl;		
-				return;
-			}
-			cout << "	Search Item" << endl;
-			cout << "-------------------------"  << endl;
+			cout << "Inventory Does Not Have Any Available Items" << endl;		
+			return;
+		}
+		cout << "	Search Item" << endl;
+		cout << "-------------------------"  << endl;
     		cout << "Enter Item ID: ";
     		getline (cin >> ws, itemID);
     		toLower(itemID);
@@ -359,10 +359,10 @@ class ItemInventory{
 				}
     			if(toLower(idHolder) == itemID && choice == 1){
     				cout << "ID: " << product[i]->getItemid() 
-						 << "\nName: " << product[i]->getItemname() 
-						 << "\nQuantity: "<< product[i]->getQuantity()
-    					 << "\nPrice: " << product[i]->getPrice() 
-						 << "\nCategory: " << product[i]->getCategory() << endl;  
+					<< "\nName: " << product[i]->getItemname() 
+					<< "\nQuantity: "<< product[i]->getQuantity()
+    					<< "\nPrice: " << product[i]->getPrice() 
+					<< "\nCategory: " << product[i]->getCategory() << endl;  
     				founditem = true;
 				}
 			}
@@ -482,10 +482,10 @@ int main(){
 						cout << "Input Item Name: "; 
 						getline (cin >> ws, itemname);
 						cout << "Input Quantity of Item: ";
-            			itemqty = validInput("integer");
-            			cout << "Input Price For Item: ";
-            			priceitem = validInput("float");
-            			item.addProduct(itemID, itemname, category, itemqty, priceitem);
+            					itemqty = validInput("integer");
+            					cout << "Input Price For Item: ";
+            					priceitem = validInput("float");
+            					item.addProduct(itemID, itemname, category, itemqty, priceitem);
 					}
 					else
 						cout << "Category " << category << " is an invalid input please try again\n" << endl;
@@ -501,8 +501,8 @@ int main(){
 				system ("pause");	system ("cls");
 			break;
 			case 4:
-                item.displayBycategory(category, false);
-                system ("pause");	system ("cls");
+                		item.displayBycategory(category, false);
+                		system ("pause");	system ("cls");
 			break;
 			case 5:
 				item.displayProduct();
